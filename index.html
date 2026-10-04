@@ -23,6 +23,12 @@
        * Todo el diseño se escala en proporción al ancho de la ventana.
        */
       --px: clamp(0.68px, 0.052083vw, 1.35px);
+
+      /* Escala de los textos (1 = tamaño de la referencia). Menor número = letras más pequeñas. */
+      --t: 0.8;
+
+      /* Tamaño de la garza (1 = tamaño de la referencia). Mayor número = garza más grande. */
+      --garza-escala: 1.15;
     }
 
     * {
@@ -68,7 +74,7 @@
     .institucion {
       margin: 0;
       text-align: center;
-      font-size: calc(24 * var(--px));
+      font-size: max(12px, calc(24 * var(--px) * var(--t)));
       line-height: 1.3;
     }
 
@@ -84,7 +90,7 @@
       background: var(--beige);
       color: #000000;
       text-align: center;
-      font-size: calc(20 * var(--px));
+      font-size: max(12px, calc(20 * var(--px) * var(--t)));
       font-weight: bold;
       line-height: 1.2;
       text-transform: uppercase;
@@ -102,6 +108,7 @@
       overflow: hidden;
       flex: 1 0 auto;
       width: 100%;
+      min-height: calc(673 * var(--px));
       padding: calc(73 * var(--px)) 20px calc(40 * var(--px));
       text-align: center;
     }
@@ -114,7 +121,10 @@
       right: 0;
       bottom: 0;
       left: 0;
-      background: url("garza.png") no-repeat right 3.1% bottom 0 / auto 98%;
+      background-image: url("garza.png");
+      background-repeat: no-repeat;
+      background-position: right calc(60 * var(--px)) top calc(13 * var(--px));
+      background-size: auto calc(660 * var(--px) * var(--garza-escala));
       pointer-events: none;
       z-index: 0;
     }
@@ -127,14 +137,14 @@
     h1 {
       margin: 0 0 calc(7 * var(--px));
       color: #000000;
-      font-size: calc(32 * var(--px));
+      font-size: max(17px, calc(32 * var(--px) * var(--t)));
       line-height: 1.2;
     }
 
     .descripcion {
       margin: 0 0 calc(55 * var(--px));
       color: #000000;
-      font-size: calc(20 * var(--px));
+      font-size: max(12px, calc(20 * var(--px) * var(--t)));
       line-height: 1.25;
     }
 
@@ -148,7 +158,7 @@
       display: block;
       margin-bottom: calc(4 * var(--px));
       color: #000000;
-      font-size: calc(25 * var(--px));
+      font-size: max(14px, calc(25 * var(--px) * var(--t)));
       font-weight: bold;
       line-height: 1.2;
     }
@@ -163,7 +173,7 @@
       background: #ffffff;
       color: #000000;
       font-family: var(--campos);
-      font-size: max(15px, calc(20 * var(--px)));
+      font-size: max(14px, calc(20 * var(--px) * var(--t)));
       text-align: center;
       outline: none;
     }
@@ -188,7 +198,7 @@
       background: var(--guinda);
       color: #ffffff;
       font-family: var(--campos);
-      font-size: max(15px, calc(21 * var(--px)));
+      font-size: max(14px, calc(21 * var(--px) * var(--t)));
       font-weight: bold;
       cursor: pointer;
     }
@@ -257,7 +267,7 @@
       padding: calc(19 * var(--px)) 20px;
       color: #000000;
       text-align: center;
-      font-size: calc(22 * var(--px));
+      font-size: max(12px, calc(22 * var(--px) * var(--t)));
       line-height: 1.35;
     }
 
@@ -279,6 +289,7 @@
       }
 
       .contenedor {
+        min-height: 0;
         padding-top: 32px;
       }
 
