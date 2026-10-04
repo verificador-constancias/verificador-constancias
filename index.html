@@ -19,16 +19,19 @@
       --campos: "Open Sans", "Segoe UI", Arial, sans-serif;
 
       /*
-       * Unidad de diseño: 1 px de la imagen de referencia (1920 px de ancho).
-       * Todo el diseño se escala en proporción al ancho de la ventana.
+       * Unidades de diseño (1 px = 1 px de una pantalla de 1920 x 1080).
+       * --pxw: se escala con el ancho de la ventana.
+       * --px:  se escala con el menor entre ancho y alto, para que toda
+       *        la página quepa en la pantalla sin desplazamiento vertical.
        */
-      --px: clamp(0.68px, 0.052083vw, 1px);
+      --pxw: max(0.5px, 0.052083vw);
+      --px: max(0.45px, min(0.052083vw, 0.092593vh));
 
       /* Escala de los textos (1 = tamaño de la referencia). Menor número = letras más pequeñas. */
       --t: 0.62;
 
       /* Tamaño de la garza (1 = tamaño de la referencia). Mayor número = garza más grande. */
-      --garza-escala: 0.95;
+      --garza-escala: 1.1;
     }
 
     * {
@@ -42,6 +45,7 @@
     body {
       margin: 0;
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       flex-direction: column;
       font-family: var(--titulos);
@@ -54,19 +58,19 @@
     .encabezado {
       background: var(--guinda);
       color: #ffffff;
-      padding: calc(35 * var(--px)) 20px;
+      padding: calc(26 * var(--px)) 20px;
     }
 
     .encabezado-contenido {
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: calc(29 * var(--px));
-      padding-right: calc(65 * var(--px));
+      gap: calc(26 * var(--px));
+      padding-right: calc(56 * var(--px));
     }
 
     .encabezado-contenido img {
-      height: calc(123 * var(--px));
+      height: calc(105 * var(--px));
       width: auto;
       display: block;
     }
@@ -82,7 +86,7 @@
 
     .sistema {
       margin: 0;
-      min-height: calc(61 * var(--px));
+      min-height: calc(46 * var(--px));
       padding: 0 20px;
       display: flex;
       align-items: center;
@@ -97,7 +101,7 @@
     }
 
     .franja {
-      height: calc(53 * var(--px));
+      height: calc(34 * var(--px));
       background: var(--guinda);
     }
 
@@ -108,8 +112,7 @@
       overflow: hidden;
       flex: 1 0 auto;
       width: 100%;
-      min-height: calc(673 * var(--px));
-      padding: calc(73 * var(--px)) 20px calc(40 * var(--px));
+      padding: calc(60 * var(--px)) 20px calc(30 * var(--px));
       text-align: center;
     }
 
@@ -123,7 +126,7 @@
       left: 0;
       background-image: url("garza1.png");
       background-repeat: no-repeat;
-      background-position: right calc(60 * var(--px)) top calc(13 * var(--px));
+      background-position: right calc(60 * var(--pxw)) bottom 0;
       background-size: auto calc(660 * var(--px) * var(--garza-escala));
       pointer-events: none;
       z-index: 0;
@@ -142,7 +145,7 @@
     }
 
     .descripcion {
-      margin: 0 0 calc(55 * var(--px));
+      margin: 0 0 calc(44 * var(--px));
       color: #000000;
       font-size: max(11px, calc(20 * var(--px) * var(--t)));
       line-height: 1.25;
@@ -150,7 +153,8 @@
 
     .formulario {
       width: 100%;
-      max-width: calc(555 * var(--px));
+      max-width: calc(555 * var(--pxw));
+      min-width: 260px;
       margin: 0 auto;
     }
 
@@ -166,10 +170,10 @@
     input {
       display: block;
       width: 100%;
-      height: max(40px, calc(55 * var(--px)));
+      height: max(34px, calc(44 * var(--px)));
       padding: 0 14px;
       border: 1px solid #000000;
-      border-radius: calc(8 * var(--px));
+      border-radius: 6px;
       background: #ffffff;
       color: #000000;
       font-family: var(--campos);
@@ -191,10 +195,10 @@
     button {
       display: block;
       width: 100%;
-      height: max(40px, calc(55 * var(--px)));
-      margin-top: calc(20 * var(--px));
+      height: max(34px, calc(44 * var(--px)));
+      margin-top: max(10px, calc(14 * var(--px)));
       border: 1px solid #000000;
-      border-radius: calc(8 * var(--px));
+      border-radius: 6px;
       background: var(--guinda);
       color: #ffffff;
       font-family: var(--campos);
@@ -216,18 +220,18 @@
 
     #resultado {
       width: 100%;
-      max-width: calc(555 * var(--px));
-      min-width: 300px;
-      margin: 22px auto 0;
+      max-width: calc(555 * var(--pxw));
+      min-width: 260px;
+      margin: 18px auto 0;
       text-align: left;
       color: #333;
     }
 
     .resultado {
-      padding: 16px;
+      padding: 14px 16px;
       border-radius: 6px;
       font-size: 15px;
-      line-height: 1.55;
+      line-height: 1.5;
     }
 
     .valida {
@@ -243,7 +247,7 @@
     .titulo-resultado {
       font-size: 17px;
       font-weight: bold;
-      margin-bottom: 12px;
+      margin-bottom: 10px;
     }
 
     .invalida .titulo-resultado {
@@ -252,7 +256,7 @@
     }
 
     .dato {
-      margin: 6px 0;
+      margin: 5px 0;
     }
 
     .dato strong {
@@ -264,7 +268,7 @@
 
     .pie {
       background: var(--beige);
-      padding: calc(19 * var(--px)) 20px;
+      padding: calc(15 * var(--px)) 20px;
       color: #000000;
       text-align: center;
       font-size: max(11px, calc(22 * var(--px) * var(--t)));
@@ -280,6 +284,7 @@
     @media (max-width: 768px) {
       :root {
         --px: 0.72px;
+        --pxw: 0.72px;
         --t: 1;
       }
 
@@ -290,7 +295,6 @@
       }
 
       .contenedor {
-        min-height: 0;
         padding-top: 32px;
       }
 
@@ -305,9 +309,11 @@
 
       input,
       button {
+        height: 42px;
         font-size: 16px;
       }
 
+      .formulario,
       #resultado {
         min-width: 0;
       }
@@ -465,3 +471,117 @@ if (folio === '') {
 
         if (!respuesta.ok) {
           throw new Error('Error HTTP ' + respuesta.status);
+        }
+
+
+        const datos = await respuesta.json();
+
+
+if (datos.valido === true) {
+
+  mostrarConstanciaValida(datos);
+
+} else {
+
+  mostrarResultado(
+    false,
+    datos.mensaje || 'Folio no encontrado. Verifique que esté escrito correctamente o comuníquese al correo: capacitaciondap@uaeh.edu.mx'
+  );
+
+}
+
+
+      } catch (error) {
+
+        console.error(error);
+
+        mostrarResultado(
+          false,
+          'No fue posible realizar la consulta. Intente nuevamente.'
+        );
+
+      } finally {
+
+        botonVerificar.disabled = false;
+        botonVerificar.textContent = 'Verificar';
+
+      }
+
+    }
+
+
+    function mostrarConstanciaValida(datos) {
+
+      const informacion = datos.datos;
+
+
+      resultado.innerHTML = `
+
+        <div class="resultado valida">
+
+          <div class="titulo-resultado">
+            Constancia válida
+          </div>
+
+          <div class="dato">
+            <strong>Participante:</strong>
+            ${escapeHtml(informacion.participante)}
+          </div>
+
+          <div class="dato">
+            <strong>Curso:</strong>
+            ${escapeHtml(informacion.curso)}
+          </div>
+
+          <div class="dato">
+            <strong>Duración:</strong>
+            ${escapeHtml(informacion.duracion)}
+          </div>
+
+          <div class="dato">
+            <strong>Fecha:</strong>
+            ${escapeHtml(informacion.fecha)}
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    function mostrarResultado(esValido, mensaje) {
+
+      resultado.innerHTML = `
+
+        <div class="resultado ${esValido ? 'valida' : 'invalida'}">
+
+          <div class="titulo-resultado">
+            ${escapeHtml(mensaje)}
+          </div>
+
+        </div>
+
+      `;
+
+    }
+
+
+    /*
+     * Evita que datos provenientes de la hoja
+     * puedan interpretarse como código HTML.
+     */
+    function escapeHtml(texto) {
+
+      const div = document.createElement('div');
+
+      div.textContent = texto ?? '';
+
+      return div.innerHTML;
+
+    }
+
+  </script>
+
+</body>
+</html>
