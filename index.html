@@ -42,20 +42,20 @@
     .encabezado {
       background: var(--guinda);
       color: #ffffff;
-      padding: 40px 20px;
+      padding: 26px 20px;
     }
 
     .encabezado-contenido {
-      max-width: 990px;
+      max-width: 800px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 32px;
+      gap: 22px;
     }
 
     .encabezado-contenido img {
-      height: 112px;
+      height: 78px;
       width: auto;
       display: block;
     }
@@ -63,7 +63,7 @@
     .institucion {
       margin: 0;
       text-align: center;
-      font-size: clamp(16px, 1.5vw, 26px);
+      font-size: clamp(13px, 1.1vw, 17px);
       line-height: 1.35;
     }
 
@@ -71,18 +71,18 @@
 
     .sistema {
       margin: 0;
-      padding: 14px 20px;
+      padding: 10px 20px;
       background: var(--beige);
       color: #000000;
       text-align: center;
-      font-size: clamp(17px, 2vw, 30px);
+      font-size: clamp(14px, 1.4vw, 21px);
       font-weight: bold;
       line-height: 1.25;
       text-transform: uppercase;
     }
 
     .franja {
-      height: 53px;
+      height: 34px;
       background: var(--guinda);
     }
 
@@ -91,29 +91,29 @@
     .contenedor {
       flex: 1 0 auto;
       width: 100%;
-      max-width: 990px;
+      max-width: 800px;
       margin: 0 auto;
-      padding: 56px 20px 48px;
+      padding: 38px 20px 36px;
       text-align: center;
     }
 
     h1 {
-      margin: 0 0 8px;
+      margin: 0 0 6px;
       color: #000000;
-      font-size: clamp(24px, 3vw, 38px);
+      font-size: clamp(20px, 2.2vw, 28px);
       line-height: 1.2;
     }
 
     .descripcion {
-      margin: 0 0 56px;
+      margin: 0 0 36px;
       color: #000000;
-      font-size: clamp(17px, 1.8vw, 26px);
+      font-size: clamp(14px, 1.3vw, 18px);
       line-height: 1.35;
     }
 
     .formulario {
       width: 100%;
-      max-width: 555px;
+      max-width: 400px;
       margin: 0 auto;
     }
 
@@ -121,21 +121,21 @@
       display: block;
       margin-bottom: 3px;
       color: #000000;
-      font-size: clamp(18px, 1.7vw, 26px);
+      font-size: clamp(15px, 1.25vw, 18px);
       font-weight: bold;
     }
 
     input {
       display: block;
       width: 100%;
-      height: 55px;
-      padding: 0 16px;
+      height: 42px;
+      padding: 0 14px;
       border: 1px solid #000000;
       border-radius: 6px;
       background: #ffffff;
       color: #000000;
       font-family: var(--campos);
-      font-size: clamp(17px, 1.6vw, 25px);
+      font-size: 16px;
       text-align: center;
       outline: none;
     }
@@ -153,14 +153,14 @@
     button {
       display: block;
       width: 100%;
-      height: 55px;
-      margin-top: 20px;
+      height: 42px;
+      margin-top: 14px;
       border: 1px solid #000000;
       border-radius: 6px;
       background: var(--guinda);
       color: #ffffff;
       font-family: var(--campos);
-      font-size: clamp(18px, 1.7vw, 26px);
+      font-size: 16px;
       font-weight: bold;
       cursor: pointer;
     }
@@ -178,16 +178,17 @@
 
     #resultado {
       width: 100%;
-      max-width: 555px;
-      margin: 25px auto 0;
+      max-width: 400px;
+      margin: 22px auto 0;
       text-align: left;
       color: #333;
     }
 
     .resultado {
-      padding: 20px;
+      padding: 16px;
       border-radius: 6px;
-      line-height: 1.6;
+      font-size: 15px;
+      line-height: 1.55;
     }
 
     .valida {
@@ -201,28 +202,33 @@
     }
 
     .titulo-resultado {
-      font-size: 20px;
+      font-size: 17px;
       font-weight: bold;
-      margin-bottom: 15px;
+      margin-bottom: 12px;
+    }
+
+    .invalida .titulo-resultado {
+      margin-bottom: 0;
+      font-size: 15px;
     }
 
     .dato {
-      margin: 7px 0;
+      margin: 6px 0;
     }
 
     .dato strong {
       display: inline-block;
-      min-width: 120px;
+      min-width: 105px;
     }
 
     /* PIE */
 
     .pie {
       background: var(--beige);
-      padding: 22px 20px;
+      padding: 16px 20px;
       color: #000000;
       text-align: center;
-      font-size: clamp(16px, 1.6vw, 25px);
+      font-size: clamp(13px, 1.2vw, 17px);
       line-height: 1.5;
     }
 
@@ -232,28 +238,28 @@
 
     @media (max-width: 768px) {
       .encabezado {
-        padding: 28px 16px;
+        padding: 22px 16px;
       }
 
       .encabezado-contenido {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
       }
 
       .encabezado-contenido img {
-        height: 80px;
+        height: 62px;
       }
 
       .franja {
-        height: 28px;
+        height: 22px;
       }
 
       .contenedor {
-        padding-top: 36px;
+        padding-top: 28px;
       }
 
       .descripcion {
-        margin-bottom: 36px;
+        margin-bottom: 28px;
       }
     }
 
