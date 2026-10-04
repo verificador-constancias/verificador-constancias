@@ -278,16 +278,15 @@
       const folio = campoFolio.value;
 
 
-      if (folio === '') {
+if (folio === '') {
 
-        mostrarResultado(
-          false,
-          'Folio no encontrado. Verifique que esté escrito correctamente.'
-        );
+  mostrarResultado(
+    false,
+    'Folio no encontrado. Verifique que esté escrito correctamente o comuníquese al correo: capacitaciondap@uaeh.edu.mx'
+  );
 
-        return;
-      }
-
+  return;
+}
 
       botonVerificar.disabled = true;
       botonVerificar.textContent = 'Verificando...';
@@ -320,18 +319,18 @@
         const datos = await respuesta.json();
 
 
-        if (datos.valido === true) {
+if (datos.valido === true) {
 
-          mostrarConstanciaValida(datos);
+  mostrarConstanciaValida(datos);
 
-        } else {
+} else {
 
-          mostrarResultado(
-            false,
-            'Folio no encontrado. Verifique que esté escrito correctamente.'
-          );
+  mostrarResultado(
+    false,
+    datos.mensaje || 'Folio no encontrado. Verifique que esté escrito correctamente o comuníquese al correo: capacitaciondap@uaeh.edu.mx'
+  );
 
-        }
+}
 
 
       } catch (error) {
