@@ -405,7 +405,6 @@
      * URL DEL SERVICIO DE VERIFICACIÓN
      *
      * Este es el Web App de Google Apps Script
-     * que probamos anteriormente.
      */
     const URL_VERIFICADOR =
       'https://script.google.com/macros/s/AKfycbyiNuX8QHF3XxXkkdDPicnzTcBpufBr2-DfFz0_HFvhAJllrLSy5ZUsST-kD4kW1xigTg/exec';
@@ -433,9 +432,9 @@
       /*
        * IMPORTANTE:
        *
-       * Tomamos exactamente lo que escribió el usuario.
+       * Se toma exactamente lo que escribió el usuario.
        *
-       * NO usamos:
+       * NO se usa:
        * trim()
        * toUpperCase()
        * toLowerCase()
@@ -471,7 +470,7 @@ if (folio === '') {
          * para poder transportarlo correctamente dentro
          * de una URL.
          *
-         * No modifica el valor que Apps Script recibe.
+         * No se modifica el valor que Apps Script recibe.
          */
         const url =
           URL_VERIFICADOR +
